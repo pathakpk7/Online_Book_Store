@@ -1,0 +1,32 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    width: 100%;
+    /* border: 1px solid red; */
+    padding: 5px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: teal;
+}
+nav ul{
+    text-decoration: none;
+     display: flex;
+     justify-content: space-evenly;
+     color: white;
+     font-size: large;
+     
+}
+nav ul li{
+    /* border : 1px solid black; */
+    list-style: none;
+    padding: 5px 12px;
+    border-radius: 3px;
+    background-color: rgb(28, 107, 110);
+    
+}
+nav ul li:hover{
+ color: black;
+ cursor: pointer;
+ background-color: aquamarine;
+ box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;}
