@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Book Store</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Online Book Store - Log-In Page</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Log-in</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form id="login-form">
+                <div class="textbox">
+                    <i class="fas fa-user"></i>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="textbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="register.html">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

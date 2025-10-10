@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(181, 228, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #023041;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(252, 251, 251);
+    width: 900px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fbf9f9;
+    width: 700px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #12c5f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1c474a;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+li .date {
+    font-size: 0.8em;
+    color: #666;
+}
+
+li button {
+    background-color: blanchedalmond;
+    border: none;
+    cursor: pointer;
+    color: #ff3c00;
+}
+
+li button:hover {
+    color: #45a049;
+}

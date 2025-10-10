@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #033c6d;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #4b565a;
+    color: white;
+}
+
+#hero img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+#hero p {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Section Styles */
+section {
+    padding: 50px 20px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* Skills Section */
+#skills ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#skills ul li {
+    display: inline-block;
+    background-color: #054d4e;
+    padding: 10px 20px;
+    margin: 10px;
+    color: #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(0, 57, 9);
+    transition: background-color 0.5s ease-in;
+}
+
+/* Projects Section */
+#projects .project {
+    
+    background-color: #7e7fa5;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(2, 2, 126);
+    width: 80%;
+}
+
+#projects .project h3 {
+    margin-top: 0;
+}
+
+#projects .project a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #030b4a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 23px rgb(3, 73, 99);
+    transition: background-color 0.3s ease;
+}
+
+#projects .project a:hover {
+    background-color: #032441;
+}
+
+/* Education and Experience Section */
+.education-item, .experience-item {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 23px rgb(0, 53, 27);
+    width: 75%;
+}
+
+/* Contact Section */
+#contact a {
+    color: #051f39;
+    text-decoration: none;
+    text-shadow: #08546d;
+    font-weight: bold;
+    text-align: center;
+}
+ #contact a.hover{
+    background-color: #08546d;
+ }
+#contact .social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    
+}
+
+#contact .social-media a:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

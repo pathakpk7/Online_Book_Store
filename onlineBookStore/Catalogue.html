@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - Online Book Store</title>
+    <link rel="stylesheet" href="catalogue.css">
+</head>
+<body>
+    <header>
+        <h1>Online Book Store - Catalogue</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Log-in</a>
+        </nav>
+    </header>
+    <main>
+        <section id="catalogue">
+            <h2>Our Books</h2>
+            <div id="book-list">
+                <div class="book">
+                    <img src="Ds.jpg" alt="Book 1">
+                    <div>
+                        <h3>Data Structure Using C and C++</h3>
+                        <p>Price: $10</p>
+                        <button onclick="addToCart(1)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="De.jpg" alt="Book 2">
+                    <div>
+                        <h3>Digital Electronics</h3>
+                        <p>Price: $15</p>
+                        <button onclick="addToCart(2)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="Dstl.jpg" alt="Book 3">
+                    <div>
+                        <h3>Discrete Mathematics</h3>
+                        <p>Price: $20</p>
+                        <button onclick="addToCart(3)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Book Store. All rights reserved.</p>
+    </footer>
+    <script src="catalogue.js"></script>
+</body>
+</html>
