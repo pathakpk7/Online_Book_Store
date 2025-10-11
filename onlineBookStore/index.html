@@ -3,31 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Book Store</title>
+    <title>📚 Literary Haven - Premium Online Bookstore</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Online Book Store</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="catalogue.html">Catalogue</a>
-            <a href="cart.html">Cart</a>
-            <a href="contact.html">Contact</a>
-            <a href="register.html">Register</a>
-            <a href="login.html">Log-in</a>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-book">
+            <div class="book-spine"></div>
+            <div class="book-pages-loading"></div>
+        </div>
+        <p class="loading-text">Opening the Gates of Knowledge...</p>
+    </div>
+
+    <!-- Wooden Doors -->
+    <div class="wooden-doors">
+        <div class="door door-left">
+            <div class="door-panel">
+                <div class="wood-grain"></div>
+                <div class="door-handle">
+                    <div class="handle-ring"></div>
+                </div>
+                <div class="door-hinges">
+                    <div class="hinge"></div>
+                    <div class="hinge"></div>
+                </div>
+            </div>
+        </div>
+        <div class="door door-right">
+            <div class="door-panel">
+                <div class="wood-grain"></div>
+                <div class="door-handle">
+                    <div class="handle-ring"></div>
+                </div>
+                <div class="door-hinges">
+                    <div class="hinge"></div>
+                    <div class="hinge"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>Literary Haven</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#catalogue" class="nav-link">Catalogue</a></li>
+                <li><a href="#cart" class="nav-link">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#register" class="nav-link">Register</a></li>
+                <li><a href="#login" class="nav-link">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
         </nav>
-    </header>
-    <main>
-        <section id="intro">
-            <h2>Find the Books you Need !</h2>
-            <p>Explore our wide selection of books across various genres.</p>
-            <button onclick="location.href='catalogue.html'">Browse Books</button>
+
+    <!-- Library Books Animation -->
+    <div class="library-books">
+        <div class="library-books-left">
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+        </div>
+        <div class="library-books-right">
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+            <div class="library-book"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title animate-on-scroll">
+                    Welcome to <span class="highlight">Literary Haven</span>
+                </h1>
+                <p class="hero-subtitle animate-on-scroll">
+                    Discover endless worlds between the covers of our carefully curated collection
+                </p>
+                <div class="hero-buttons animate-on-scroll">
+                    <button class="btn btn-primary" onclick="scrollToSection('catalogue')">
+                        <i class="fas fa-book-open"></i> Explore Collection
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('featured')">
+                        <i class="fas fa-star"></i> Featured Books
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-books">
+                    <div class="book book-1"></div>
+                    <div class="book book-2"></div>
+                    <div class="book book-3"></div>
+                    <div class="book book-4"></div>
+                    <div class="book book-5"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-arrow"></div>
+            <p>Scroll to discover</p>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <i class="fas fa-star"></i> Featured Collection
+            </h2>
+            <div class="books-grid">
+                <div class="book-card animate-on-scroll">
+                    <div class="book-cover-img">
+                        <img src="book1.jpg" alt="Featured Book 1" onerror="this.style.display='none'">
+                        <div class="book-overlay">
+                            <button class="btn btn-small" onclick="addToCart(1)">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Adventure Awaits</h3>
+                        <p class="author">By John Adventure</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                        <div class="price">$24.99</div>
+                    </div>
+                </div>
+                
+                <div class="book-card animate-on-scroll">
+                    <div class="book-cover-img">
+                        <div class="placeholder-cover">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-overlay">
+                            <button class="btn btn-small" onclick="addToCart(2)">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Mystery of Time</h3>
+                        <p class="author">By Sarah Mystery</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7</span>
+                        </div>
+                        <div class="price">$19.99</div>
+                    </div>
+                </div>
+                
+                <div class="book-card animate-on-scroll">
+                    <div class="book-cover-img">
+                        <div class="placeholder-cover">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-overlay">
+                            <button class="btn btn-small" onclick="addToCart(3)">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Love & Poetry</h3>
+                        <p class="author">By Emma Poet</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="price">$16.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogue Section -->
+    <section id="catalogue" class="page-section">
+        <div class="container">
+            <div class="page-content">
+                <h2 class="section-title animate-on-scroll">
+                    <i class="fas fa-list"></i> Our Complete Catalogue
+                </h2>
+                <p class="animate-on-scroll">
+                    Explore our extensive collection of books across all genres. From fiction to non-fiction, 
+                    academic texts to children's books, we have something for every reader.
+                </p>
+                <div class="books-grid">
+                    <div class="book-card animate-on-scroll">
+                        <div class="book-cover-img">
+                            <img src="Ds.jpg" alt="Data Structure Using C and C++" onerror="this.style.display='none'">
+                            <div class="book-overlay">
+                                <button class="btn btn-small" onclick="addToCart(1)">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3>Data Structure Using C and C++</h3>
+                            <p class="author">By Technical Author</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="price">$10.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card animate-on-scroll">
+                        <div class="book-cover-img">
+                            <img src="De.jpg" alt="Digital Electronics" onerror="this.style.display='none'">
+                            <div class="book-overlay">
+                                <button class="btn btn-small" onclick="addToCart(2)">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3>Digital Electronics</h3>
+                            <p class="author">By Electronics Expert</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                            </div>
+                            <div class="price">$15.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card animate-on-scroll">
+                        <div class="book-cover-img">
+                            <img src="Dstl.jpg" alt="Discrete Mathematics" onerror="this.style.display='none'">
+                            <div class="book-overlay">
+                                <button class="btn btn-small" onclick="addToCart(3)">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3>Discrete Mathematics</h3>
+                            <p class="author">By Math Professor</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="price">$20.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll" style="margin-top: 40px;">
+                    <button class="btn btn-primary" onclick="scrollToSection('cart')">
+                        <i class="fas fa-shopping-cart"></i> View Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Why Choose Literary Haven?</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Collection</h3>
+                    <p>Over 100,000 books from around the world, spanning every genre and era.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Lightning Fast Delivery</h3>
+                    <p>Get your books delivered within 24-48 hours with our premium shipping service.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Best Prices Guaranteed</h3>
+                    <p>Competitive prices with daily deals and exclusive member discounts.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Reviews</h3>
+                    <p>Read genuine reviews from our community of passionate book lovers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="page-section">
+        <div class="container">
+            <div class="page-content">
+                <h2 class="section-title animate-on-scroll">
+                    <i class="fas fa-shopping-cart"></i> Your Shopping Cart
+                </h2>
+                <div id="cart-items" class="animate-on-scroll">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div class="animate-on-scroll" style="margin-top: 30px;">
+                    <p>Total: $<span id="total-price">0.00</span></p>
+                    <button class="btn btn-primary" onclick="checkout()">
+                        <i class="fas fa-credit-card"></i> Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <div class="page-content">
+                <h2 class="section-title animate-on-scroll">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </h2>
+                <form id="contact-form" class="animate-on-scroll">
+                    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 0 auto;">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <textarea id="message" name="message" rows="4" placeholder="Your Message" required 
+                                  style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none; resize: vertical;"></textarea>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register" class="page-section">
+        <div class="container">
+            <div class="page-content">
+                <h2 class="section-title animate-on-scroll">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </h2>
+                <form id="register-form" class="animate-on-scroll">
+                    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 0 auto;">
+                        <input type="text" id="username" name="username" placeholder="Username" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <input type="password" id="password" name="password" placeholder="Password" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Register
+                        </button>
+                        <p style="margin-top: 20px;">
+                            Already have an account? <a href="#login" onclick="scrollToSection('login')" style="color: #ffd700; text-decoration: none;">Login here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="page-section">
+        <div class="container">
+            <div class="page-content">
+                <h2 class="section-title animate-on-scroll">
+                    <i class="fas fa-sign-in-alt"></i> Login to Your Account
+                </h2>
+                <form id="login-form" class="animate-on-scroll">
+                    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 0 auto;">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <input type="password" id="password" name="password" placeholder="Password" required 
+                               style="padding: 15px; border: none; border-radius: 25px; font-size: 16px; outline: none;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <p style="margin-top: 20px;">
+                            Don't have an account? <a href="#register" onclick="scrollToSection('register')" style="color: #ffd700; text-decoration: none;">Register here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content animate-on-scroll">
+                <h2>Stay Updated with New Releases</h2>
+                <p>Subscribe to our newsletter and be the first to know about new books, exclusive deals, and literary events.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
         </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Online Book Store. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>Literary Haven</span>
+                    </div>
+                    <p>Your gateway to endless stories and knowledge. Discover, read, and explore the world of books with us.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-goodreads"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#catalogue" onclick="scrollToSection('catalogue')">Browse Books</a></li>
+                        <li><a href="#featured" onclick="scrollToSection('featured')">Featured Books</a></li>
+                        <li><a href="#cart" onclick="scrollToSection('cart')">Shopping Cart</a></li>
+                        <li><a href="#contact" onclick="scrollToSection('contact')">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#contact" onclick="scrollToSection('contact')">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#login" onclick="scrollToSection('login')">Login</a></li>
+                        <li><a href="#register" onclick="scrollToSection('register')">Register</a></li>
+                        <li><a href="#cart" onclick="scrollToSection('cart')">My Cart</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Literary Haven. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
     </footer>
+
     <script src="index.js"></script>
 </body>
 </html>
